@@ -1,9 +1,13 @@
 package de.bruxxen.MyGourmet;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.context.*;
+import javax.servlet.http.HttpServletResponse;
 
 @ManagedBean
 @SessionScoped
@@ -48,5 +52,35 @@ public class Customer {
 	public void useCreditCardChanged(ValueChangeEvent e) {
 		this.useCreditCard =! this.useCreditCard;
 		FacesContext.getCurrentInstance().renderResponse();
+	}
+	
+	public String export() {
+		FacesContext fContext = FacesContext.getCurrentInstance();
+		try {
+			HttpServletResponse resp = (HttpServletResponse) fContext.getExternalContext().getResponse();
+			resp.setContentType("text/plain");
+			PrintWriter writer = resp.getWriter();
+			
+			writer.print("First Name: ");
+			writer.print(this.firstName);
+			writer.println();
+			writer.print("Last Name: ");
+			writer.print(this.lastName);
+			writer.println();
+			if(this.useCreditCard) {
+				writer.print("Credit Card Type: ");
+				writer.print(this.creditCardType);
+				writer.println();
+				writer.print("Credit Card Number: ");
+				writer.print(this.creditCardNumber);
+				writer.println();
+			}
+			writer.close();
+			fContext.responseComplete();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 }
