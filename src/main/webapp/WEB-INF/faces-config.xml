@@ -23,6 +23,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 	
+<application>
+	<system-event-listener>
+		<system-event-listener-class>de.bruxxen.MyGourmet.Listener.ApplicationListener</system-event-listener-class>
+		<system-event-class>javax.faces.event.PostConstructApplicationEvent</system-event-class>
+	</system-event-listener>
+</application>	
 <navigation-rule>
 	<from-view-id>/editCustomer</from-view-id>
 	<navigation-case>
