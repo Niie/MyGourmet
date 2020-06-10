@@ -11,12 +11,12 @@ public class DebugPhaseListener implements PhaseListener {
 	static Log log = LogFactory.getLog(DebugPhaseListener.class);
 
 	public void afterPhase(PhaseEvent event) {
-		//log.debug("After phase: " + event.getPhaseId());
+		log.debug("After phase: " + event.getPhaseId());
 		System.out.println("After phase: " + event.getPhaseId());
 	}
 
 	public void beforePhase(PhaseEvent event) {
-		//log.debug("Before phase: " + event.getPhaseId());
+		log.debug("Before phase: " + event.getPhaseId());
 		System.out.println("Before phase: " + event.getPhaseId());
 		
 	}
