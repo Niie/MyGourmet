@@ -23,5 +23,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 	
+<navigation-rule>
+	<from-view-id>/editCustomer</from-view-id>
+	<navigation-case>
+			<from-outcome>ok</from-outcome>
+			<to-view-id>/showCustomer.xhtml</to-view-id>
+	</navigation-case>
+</navigation-rule>	
+	
 </faces-config>
         

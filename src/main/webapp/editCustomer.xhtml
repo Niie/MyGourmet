@@ -17,12 +17,17 @@
     		<h:inputText id="firstName" value="#{customer.firstName}"/>
     		<h:outputLabel value="Last Name:" for="lastName"/>
     		<h:inputText id="lastName" value="#{customer.lastName}"/>
+    		<h:outputLabel value="Use Credit Card: " for="useCreditCard"/>
+    		<h:selectBooleanCheckbox id="useCreditCard" onclick="this.form.submit()" value="#{customer.useCreditCard}" immediate ="true" 
+    			valueChangeListener="#{customer.useCreditCardChanged}"/>
+    		<h:outputLabel value="Crdit Card Type: " for="ccType" rendered="#{customer.useCreditCard}"/>
+	    	<h:inputText id="ccType" value="#{customer.creditCardType}" rendered="#{customer.useCreditCard}" required="true"/>
+	    	<h:outputLabel value="Crdit Card Number " for="ccNumber" rendered="#{customer.useCreditCard}"/>
+	    	<h:inputText id="ccNumber" value="#{customer.creditCardNumber}" rendered="#{customer.useCreditCard}" required="true"/>
     	</h:panelGrid>
     	<h:commandButton id="save" value="Save" action="/showCustomer.xhtml"/>
-    	
-    	<h:selectBooleanCheckbox onclick="this.form.submit()" value="#{customer.useCreditCard}" immediate ="true" 
-    	valueChangeListener="#{customer.useCreditCardChanged}"/>
-    	<h:inputText value="#{customer.creditCardType}" rendered="#{customer.useCreditCard}"/>
+    	<h:commandButton id="exportText" value="Export Text" action="/showCustomer.xhtml"/>
+    	<h:commandButton id="cancel" value="Cancel" action="/showCustomer.xhtml"/>
     </h:form>
 </h:body>
 </html>

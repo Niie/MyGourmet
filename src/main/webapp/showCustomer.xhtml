@@ -19,6 +19,10 @@
   		<h:outputText value="#{customer.firstName}"/>
   		<h:outputText value="Last Name:"/>
   		<h:outputText value="#{customer.lastName}"/>
+  		<h:outputText value="Credit Card Type:" rendered="#{customer.useCreditCard}"/>
+  		<h:outputText value="##{customer.creditCardType}" rendered="#{customer.useCreditCard}"/>
+  		<h:outputText value="Credit Card Number:" rendered="#{customer.useCreditCard}"/>
+  		<h:outputText value="#{customer.creditCardNumber}" rendered="#{customer.useCreditCard}"/>
    	</h:panelGrid>
   	<h:outputText value="Customer saved successfully"/>
 </body>
