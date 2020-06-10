@@ -9,9 +9,14 @@ import javax.faces.event.PhaseListener;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.BasicConfigurator;
 
 public class ParameterPhaseListener implements PhaseListener {
 	static Log log = LogFactory.getLog(ParameterPhaseListener.class);
+	
+	public ParameterPhaseListener() {
+		BasicConfigurator.configure();
+	}
 
 	public void afterPhase(PhaseEvent event) {
 		FacesContext fContext =FacesContext.getCurrentInstance();
@@ -23,13 +28,11 @@ public class ParameterPhaseListener implements PhaseListener {
 			param.append(" = ");
 			param.append(map.get(key));
 			log.debug(param.toString());
-			System.out.println("ParameterListener: " + param.toString());
 		}
 	}
 
 	public void beforePhase(PhaseEvent event) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public PhaseId getPhaseId() {
