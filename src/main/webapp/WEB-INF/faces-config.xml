@@ -30,6 +30,9 @@
 			<to-view-id>/showCustomer.xhtml</to-view-id>
 	</navigation-case>
 </navigation-rule>	
+<lifecycle>
+<phase-listener>de.bruxxen.MyGourmet.Listener.DebugPhaseListener</phase-listener>
+</lifecycle>
 	
 </faces-config>
         

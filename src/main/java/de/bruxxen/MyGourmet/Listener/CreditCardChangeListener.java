@@ -1,5 +1,6 @@
 package de.bruxxen.MyGourmet.Listener;
 
+import javax.el.ELContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ValueChangeEvent;
@@ -15,8 +16,8 @@ public class CreditCardChangeListener implements ValueChangeListener {
 		Boolean useCreditCard = (Boolean) event.getNewValue();
 		FacesContext fcontext = FacesContext.getCurrentInstance();
 		if(useCreditCard != null) {
-			//ELContext elcontext = fcontext.getELContext();
-			//Customer customer = (Customer) elcontext.ge
+			ELContext elcontext = fcontext.getELContext();
+			//Customer customer = (Customer) elcontext.getELResolver().
 		}
 		
 	}
