@@ -31,7 +31,8 @@
 	</navigation-case>
 </navigation-rule>	
 <lifecycle>
-<phase-listener>de.bruxxen.MyGourmet.Listener.DebugPhaseListener</phase-listener>
+	<phase-listener>de.bruxxen.MyGourmet.Listener.DebugPhaseListener</phase-listener>
+	<phase-listener>de.bruxxen.MyGourmet.Listener.ParameterPhaseListener</phase-listener>
 </lifecycle>
 	
 </faces-config>
