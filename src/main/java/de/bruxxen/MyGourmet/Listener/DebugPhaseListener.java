@@ -10,11 +10,6 @@ import org.apache.log4j.BasicConfigurator;
 
 public class DebugPhaseListener implements PhaseListener {
 	static Log log = LogFactory.getLog(DebugPhaseListener.class);
-
-	
-	public DebugPhaseListener() {
-		BasicConfigurator.configure();
-	}
 	
 	public void afterPhase(PhaseEvent event) {
 		log.debug("After phase: " + event.getPhaseId());
