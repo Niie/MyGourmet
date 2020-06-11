@@ -24,7 +24,9 @@
     		<h:outputLabel value="City:" for="city"/>
     		<h:inputText id="city" value="#{customer.city}"/>
     		<h:outputLabel value="Zip Code:" for="zipCode"/>
-    		<h:inputText id="zipCode" value="#{customer.zipCode}"/>
+    		<h:inputText id="zipCode" value="#{customer.zipCode}">
+    			<f:converter converterId="de.bruxxen.MyGourmet.Converter.ZipCodeConverter"/>
+    			</h:inputText>
     		<h:outputLabel value="Use Credit Card: " for="useCreditCard"/>
     		<h:selectBooleanCheckbox id="useCreditCard" onclick="this.form.submit()" value="#{customer.useCreditCard}" immediate ="true" 
     			valueChangeListener="#{customer.useCreditCardChanged}"/>
