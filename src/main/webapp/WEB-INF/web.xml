@@ -83,6 +83,10 @@
         <param-name>org.apache.myfaces.annotation.SCAN_PACKAGES</param-name>
         <param-value>de.bruxxen.helloworld</param-value>
     </context-param>
+    <context-param>
+    	<param-name>facelets.SKIP_COMMENTS</param-name>
+    	<param-value>true</param-value>
+    </context-param>
 
     <!-- Faces Servlet -->
     <servlet>
@@ -100,5 +104,7 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+    
+    
 
 </web-app>
