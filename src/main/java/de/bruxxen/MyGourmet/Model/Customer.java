@@ -1,22 +1,26 @@
-package de.bruxxen.MyGourmet;
+package de.bruxxen.MyGourmet.Model;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.event.ValueChangeEvent;
 import javax.faces.context.*;
+import javax.faces.event.ValueChangeEvent;
 import javax.servlet.http.HttpServletResponse;
 
 @ManagedBean
 @SessionScoped
 public class Customer {
-	private String firstName ="";
-	private String lastName = "";
-	private boolean useCreditCard = false;
+	private String firstName, lastName;
+	public boolean useCreditCard = false;
 	private String creditCardType = "VISA";
 	private int creditCardNumber;
+	private Date birthday;
+	private int zipCode;
+	private String city, street;
+
 	
 	public String getFirstName() {
 		return this.firstName;
@@ -47,11 +51,34 @@ public class Customer {
 	}
 	public void setCreditCardNumber(int creditCardNumber) {
 		this.creditCardNumber = creditCardNumber;
-	}
-	
+	}	
 	public void useCreditCardChanged(ValueChangeEvent e) {
 		this.useCreditCard =! this.useCreditCard;
 		FacesContext.getCurrentInstance().renderResponse();
+	}
+	public Date getBithday() {
+		return this.birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+	public int getZipCode() {
+		return this.zipCode;
+	}
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
+	}
+	public String getCity() {
+		return this.city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getStreet() {
+		return this.street;
+	}
+	public void setStreet(String street) {
+		this.street = street;
 	}
 	
 	public String export() {
@@ -80,7 +107,6 @@ public class Customer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return null;
-		
+		return null;		
 	}
 }

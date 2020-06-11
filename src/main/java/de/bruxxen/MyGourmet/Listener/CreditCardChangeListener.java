@@ -8,7 +8,7 @@ import javax.faces.event.ValueChangeListener;
 
 import com.sun.faces.el.ELContextImpl;
 
-import de.bruxxen.MyGourmet.Customer;
+import de.bruxxen.MyGourmet.Model.Customer;
 
 public class CreditCardChangeListener implements ValueChangeListener {
 
