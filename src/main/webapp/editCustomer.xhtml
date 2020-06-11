@@ -14,8 +14,7 @@
     <h:form id="form">
     	<h:panelGrid id="grid" columns="2">
     		<h:outputLabel value="First Name:" for="firstName"/>
-    		<!-- Added a replaceConverter to firstName to test the converter -->
-    		<h:inputText id="firstName" value="#{customer.firstName}" converter="#{converterProvider.replaceConverter}"/>
+    		<h:inputText id="firstName" value="#{customer.firstName}"/>
     		<h:outputLabel value="Last Name:" for="lastName"/>
     		<h:inputText id="lastName" value="#{customer.lastName}"/>
     		<h:outputLabel value="Use Credit Card: " for="useCreditCard"/>
