@@ -20,6 +20,7 @@
     		<h:outputLabel value="Birthday:" for="birthday"/>
     		<h:inputText id="birthday" value="#{customer.birthday}" required="true">
     			<f:convertDateTime patter="dd.MM.yyyy"/>
+    			<f:validator validatorId="de.bruxxen.MyGourmet.Validator.BirthdayValidator2" />
     			</h:inputText>
     		<h:outputLabel value="City:" for="city"/>
     		<h:inputText id="city" value="#{customer.city}" required="true"/>

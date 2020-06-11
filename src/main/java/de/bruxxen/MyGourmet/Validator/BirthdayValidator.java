@@ -31,6 +31,4 @@ public class BirthdayValidator implements ConstraintValidator<Birthday, Date> {
 		}
 		return dateCorrect;
 	}
-	
-
 }
