@@ -3,6 +3,7 @@ package de.bruxxen.MyGourmet.Model;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -23,7 +24,7 @@ public class Customer {
 	@NotNull(message = "Name cannot be null")
 	private String firstName, lastName;	
 	public boolean useCreditCard = false;
-	private String creditCardType = "VISA";
+	private CreditCard creditCard = new CreditCard("VISA");
 	private int creditCardNumber;
 	@Birthday	
 	private Date birthday;
@@ -49,11 +50,11 @@ public class Customer {
 	public void setUseCreditCard(boolean useCreditCard) {
 		this.useCreditCard = useCreditCard;
 	}
-	public String getCreditCardType() {
-		return this.creditCardType;
+	public CreditCard getCreditCard() {
+		return this.creditCard;
 	}
-	public void setCreditCardType(String creditCardType) {
-		this.creditCardType = creditCardType;
+	public void setCreditCard(CreditCard creditCard) {
+		this.creditCard = creditCard;
 	}
 	public int getCreditCardNumber() {
 		return this.creditCardNumber;
@@ -105,7 +106,7 @@ public class Customer {
 			writer.println();
 			if(this.useCreditCard) {
 				writer.print("Credit Card Type: ");
-				writer.print(this.creditCardType);
+				writer.print(this.creditCard);
 				writer.println();
 				writer.print("Credit Card Number: ");
 				writer.print(this.creditCardNumber);

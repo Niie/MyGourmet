@@ -32,7 +32,10 @@
     		<h:selectBooleanCheckbox id="useCreditCard" onclick="this.form.submit()" value="#{customer.useCreditCard}" immediate ="true" 
     			valueChangeListener="#{customer.useCreditCardChanged}"/>
     		<h:outputLabel value="Crdit Card Type: " for="ccType" rendered="#{customer.useCreditCard}"/>
-	    	<h:inputText id="ccType" value="#{customer.creditCardType}" rendered="#{customer.useCreditCard}" required="true"/>
+	    	<h:selectOneListbox id="ccType" value="#{customer.creditCard.name}" rendered="#{customer.useCreditCard}">
+	    		<f:selectItems value="#{creditCards.possibleCardTypes}"></f:selectItems>
+	    		</h:selectOneListbox>
+	    	
 	    	<h:outputLabel value="Crdit Card Number " for="ccNumber" rendered="#{customer.useCreditCard}"/>
 	    	<h:inputText id="ccNumber" value="#{customer.creditCardNumber}" rendered="#{customer.useCreditCard}" required="true"/>
     	</h:panelGrid>
