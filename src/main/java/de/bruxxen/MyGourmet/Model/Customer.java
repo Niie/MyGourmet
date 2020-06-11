@@ -56,7 +56,7 @@ public class Customer {
 		this.useCreditCard =! this.useCreditCard;
 		FacesContext.getCurrentInstance().renderResponse();
 	}
-	public Date getBithday() {
+	public Date getBirthday() {
 		return this.birthday;
 	}
 	public void setBirthday(Date birthday) {

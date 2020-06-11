@@ -19,8 +19,16 @@
   		<h:outputText value="#{customer.firstName}"/>
   		<h:outputText value="Last Name:"/>
   		<h:outputText value="#{customer.lastName}"/>
+  		<h:outputText value="Birthday:"/>
+  		<h:outputText value="#{customer.birthday}">
+  			<f:convertDateTime pattern="dd.MM.yyyy"/>
+  			</h:outputText>	
+  		<h:outputText value="City:"/>
+  		<h:outputText value="#{customer.city}"/>
+  		<h:outputText value="Zip Code:"/>
+  		<h:outputText value="#{customer.zipCode}"/>
   		<h:outputText value="Credit Card Type:" rendered="#{customer.useCreditCard}"/>
-  		<h:outputText value="##{customer.creditCardType}" rendered="#{customer.useCreditCard}"/>
+  		<h:outputText value="#{customer.creditCardType}" rendered="#{customer.useCreditCard}"/>
   		<h:outputText value="Credit Card Number:" rendered="#{customer.useCreditCard}"/>
   		<h:outputText value="#{customer.creditCardNumber}" rendered="#{customer.useCreditCard}"/>
    	</h:panelGrid>
