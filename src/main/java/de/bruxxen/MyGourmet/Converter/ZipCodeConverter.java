@@ -3,6 +3,7 @@ package de.bruxxen.MyGourmet.Converter;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
 @FacesConverter("de.bruxxen.MyGourmet.Converter.ZipCodeConverter")
@@ -18,7 +19,12 @@ public class ZipCodeConverter implements Converter {
 				}
 			}
 		}		
-		return value;
+		try {
+			int zipCode = Integer.valueOf(value);
+			return zipCode;
+		} catch (Exception e) {
+			throw new ConverterException("Zip invalid");
+		}		
 	}
 
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
