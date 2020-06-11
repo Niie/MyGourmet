@@ -1,10 +1,12 @@
 package de.bruxxen.MyGourmet.Converter;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
+import javax.faces.validator.ValidatorException;
 
 @FacesConverter("de.bruxxen.MyGourmet.Converter.ZipCodeConverter")
 public class ZipCodeConverter implements Converter {
@@ -21,7 +23,10 @@ public class ZipCodeConverter implements Converter {
 		}		
 		try {
 			int zipCode = Integer.valueOf(value);
-			return zipCode;
+			if (zipCode < 99999 && zipCode > 9999) return zipCode;
+			else {
+				throw new ValidatorException(new FacesMessage("Zip code not in range!", null));
+			}
 		} catch (Exception e) {
 			throw new ConverterException("Zip invalid");
 		}		

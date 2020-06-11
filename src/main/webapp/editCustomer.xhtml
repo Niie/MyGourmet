@@ -14,17 +14,17 @@
     <h:form id="form">
     	<h:panelGrid id="grid" columns="2">
     		<h:outputLabel value="First Name:" for="firstName"/>
-    		<h:inputText id="firstName" value="#{customer.firstName}"/>
+    		<h:inputText id="firstName" value="#{customer.firstName}" required="true"/>
     		<h:outputLabel value="Last Name:" for="lastName"/>
-    		<h:inputText id="lastName" value="#{customer.lastName}"/>
+    		<h:inputText id="lastName" value="#{customer.lastName}" required="true"/>
     		<h:outputLabel value="Birthday:" for="birthday"/>
-    		<h:inputText id="birthday" value="#{customer.birthday}">
+    		<h:inputText id="birthday" value="#{customer.birthday}" required="true">
     			<f:convertDateTime patter="dd.MM.yyyy"/>
     			</h:inputText>
     		<h:outputLabel value="City:" for="city"/>
-    		<h:inputText id="city" value="#{customer.city}"/>
+    		<h:inputText id="city" value="#{customer.city}" required="true"/>
     		<h:outputLabel value="Zip Code:" for="zipCode"/>
-    		<h:inputText id="zipCode" value="#{customer.zipCode}">
+    		<h:inputText id="zipCode" value="#{customer.zipCode}" required="true">
     			<f:converter converterId="de.bruxxen.MyGourmet.Converter.ZipCodeConverter"/>
     			</h:inputText>
     		<h:outputLabel value="Use Credit Card: " for="useCreditCard"/>

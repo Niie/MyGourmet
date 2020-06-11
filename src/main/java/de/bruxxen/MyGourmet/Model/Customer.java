@@ -10,6 +10,7 @@ import javax.faces.context.*;
 import javax.faces.event.ValueChangeEvent;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import de.bruxxen.MyGourmet.Interfaces.Annotation.Birthday;
@@ -26,7 +27,7 @@ public class Customer {
 	private int creditCardNumber;
 	@Birthday	
 	private Date birthday;
-	@Max(value=100)
+	@Min (value=9999)@Max(value=99999)
 	private int zipCode;
 	private String city, street;
 
