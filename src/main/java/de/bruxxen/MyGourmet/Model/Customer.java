@@ -9,19 +9,27 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.*;
 import javax.faces.event.ValueChangeEvent;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+
+import de.bruxxen.MyGourmet.Interfaces.Annotation.Birthday;
+
 
 @ManagedBean
 @SessionScoped
 public class Customer {
-	private String firstName, lastName;
+
+	@NotNull(message = "Name cannot be null")
+	private String firstName, lastName;	
 	public boolean useCreditCard = false;
 	private String creditCardType = "VISA";
 	private int creditCardNumber;
+	@Birthday	
 	private Date birthday;
+	@Max(value=100)
 	private int zipCode;
 	private String city, street;
 
-	
 	public String getFirstName() {
 		return this.firstName;
 	}
