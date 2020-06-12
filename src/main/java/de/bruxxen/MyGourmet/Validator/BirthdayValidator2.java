@@ -36,12 +36,7 @@ public class BirthdayValidator2 implements Validator, Serializable {
 			if(date.before(cal.getTime())) {
 				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Birthday is before Jan 1, 1900.", null);
 				throw new ValidatorException(msg);
-			}
-			
-		}
-		
-		
+			}	
+		}	
 	}
-	
-
 }
