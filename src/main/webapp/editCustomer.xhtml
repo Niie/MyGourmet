@@ -45,6 +45,7 @@
     	<h:commandButton id="save" value="#{msgs['save']}" action="/showCustomer.xhtml"/>
     	<h:commandButton id="exportText" value="#{msgs['export_text']}" action="#{customer.export}"/>
     	<h:commandButton id="cancel" value="#{msgs['cancel']}" action="/editCustomer.xhtml" immediate="true"/>
+    	<h:commandButton id="english" value="#{localMessage.getOppositeLocale()}" action="#{localMessage.changeLocal()}" immediate="true"/>
     </h:form>
 </h:body>
 </html>
