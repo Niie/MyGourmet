@@ -9,42 +9,42 @@
     <title>My Gourmet - Edit Customer</title>
 </h:head>
 <h:body>
-    <h1><h:outputText value="MyGourmet"/></h1>
-    <h2><h:outputText value="Edit Customer"/></h2>
+    <h1><h:outputText value="#{msgs['title_main']}"/></h1>
+    <h2><h:outputText value="#{msgs['title_edit_customer']}"/></h2>
     <h:form id="form">
     	<h:panelGrid id="grid" columns="2">
-    		<h:outputLabel value="First Name:" for="firstName"/>
+    		<h:outputLabel value="#{msgs['first_name']}:" for="firstName"/>
     		<h:inputText id="firstName" value="#{customer.firstName}" required="true"/>
-    		<h:outputLabel value="Last Name:" for="lastName"/>
+    		<h:outputLabel value="#{msgs['last_name']}:" for="lastName"/>
     		<h:inputText id="lastName" value="#{customer.lastName}" required="true"/>
-    		<h:outputLabel value="Birthday:" for="birthday"/>
-    		<h:inputText id="birthday" value="#{customer.birthday}" required="true">
+    		<h:outputLabel value="#{msgs['birthday']}:" for="birthday"/>
+    		<h:inputText id="birthday" value="#{customer.birthday}" required="true" validator ="#{birthdayValidator2.validate}">
     			<f:convertDateTime patter="dd.MM.yyyy"/>
-    			<f:validator validatorId="BirthdayValidator2" />
+				
     			</h:inputText>
-    		<h:outputLabel value="City:" for="city"/>
+    		<h:outputLabel value="#{msgs['city']}:" for="city"/>
     		<h:inputText id="city" value="#{customer.city}" required="true"/>
-    		<h:outputLabel value="Zip Code:" for="zipCode"/>
+    		<h:outputLabel value="#{msgs['zip_code']}:" for="zipCode"/>
     		<h:inputText id="zipCode" value="#{customer.zipCode}" required="true">
     			<f:converter converterId="de.bruxxen.MyGourmet.Converter.ZipCodeConverter"/>
     			</h:inputText>
-    		<h:outputLabel value="Use Credit Card: " for="useCreditCard"/>
+    		<h:outputLabel value="#{msgs['use_credit_card']}" for="useCreditCard"/>
     		<h:selectBooleanCheckbox id="useCreditCard" onclick="this.form.submit()" value="#{customer.useCreditCard}" immediate ="true" 
     			valueChangeListener="#{customer.useCreditCardChanged}"/>
-    		<h:outputLabel value="Crdit Card Type: " for="ccType" rendered="#{customer.useCreditCard}"/>
+    		<h:outputLabel value="#{msgs['crdit_card-type']}: " for="ccType" rendered="#{customer.useCreditCard}"/>
 	    	<h:selectOneListbox id="ccType" value="#{customer.creditCard.name}" rendered="#{customer.useCreditCard}">
 	    		<f:selectItems value="#{creditCards.possibleCardTypes}"></f:selectItems>
 	    		<f:event listener="#{creditCardValidator.postValidateCCType}" type="javax.faces.event.PostValidateEvent"></f:event>
 	    		</h:selectOneListbox>
 	    	
-	    	<h:outputLabel value="Crdit Card Number " for="ccNumber" rendered="#{customer.useCreditCard}"/>
+	    	<h:outputLabel value="#{msgs['credit_card_number']}:" for="ccNumber" rendered="#{customer.useCreditCard}"/>
 	    	<h:inputText id="ccNumber" value="#{customer.creditCardNumber}" rendered="#{customer.useCreditCard}" required="true"
 	    		validator ="#{creditCardValidator.validate}"/>
     		
     	</h:panelGrid>
-    	<h:commandButton id="save" value="Save" action="/showCustomer.xhtml"/>
-    	<h:commandButton id="exportText" value="Export Text" action="#{customer.export}"/>
-    	<h:commandButton id="cancel" value="Cancel" action="/editCustomer.xhtml" immediate="true"/>
+    	<h:commandButton id="save" value="#{msgs['save']}" action="/showCustomer.xhtml"/>
+    	<h:commandButton id="exportText" value="#{msgs['export_text']}" action="#{customer.export}"/>
+    	<h:commandButton id="cancel" value="#{msgs['cancel']}" action="/editCustomer.xhtml" immediate="true"/>
     </h:form>
 </h:body>
 </html>

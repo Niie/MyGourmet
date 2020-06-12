@@ -5,12 +5,16 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
+@ManagedBean
+@SessionScoped
 @FacesValidator(value=BirthdayValidator2.VALIDATOR_ID)
 public class BirthdayValidator2 implements Validator, Serializable {
 	private static final long serialVersionUID = 1L;

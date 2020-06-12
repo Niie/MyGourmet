@@ -24,6 +24,15 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 	
 <application>
+	<locale-config>
+		<default-locale>de</default-locale>
+		<supported-locale>en</supported-locale>
+	</locale-config>
+	
+	<resource-bundle>
+		<base-name>de.bruxxen.MyGourmet.Messages.messages</base-name>
+		<var>msgs</var>
+	</resource-bundle>
 	<system-event-listener>
 		<system-event-listener-class>de.bruxxen.MyGourmet.Listener.ApplicationListener</system-event-listener-class>
 		<system-event-class>javax.faces.event.PostConstructApplicationEvent</system-event-class>
