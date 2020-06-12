@@ -8,8 +8,6 @@ import java.util.ResourceBundle;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
@@ -17,8 +15,6 @@ import javax.faces.event.ComponentSystemEvent;
 import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
-
-import org.jboss.logging.Message;
 
 import de.bruxxen.MyGourmet.Model.CreditCard;
 
@@ -38,7 +34,7 @@ public class CreditCardValidator implements Validator, Serializable {
 			String ccNumber = String.valueOf(value);
 			if (ccNumber.length() != currentCC.getNumberLength()) {
 				Locale locale = context.getViewRoot().getLocale();
-				ResourceBundle bundle = ResourceBundle.getBundle("de.bruxxen.MyGourmet.Messages.messages");
+				ResourceBundle bundle = ResourceBundle.getBundle("de.bruxxen.MyGourmet.Messages.messages", locale);
 				String msgString = MessageFormat.format(bundle.getString("validateCreditCardNumber.NUMBER"), currentCC.getNumberLength());
 				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, msgString, null);				
 				throw new ValidatorException(msg);
