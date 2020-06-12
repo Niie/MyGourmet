@@ -12,7 +12,7 @@ public class LocalMessage {
 	public static FacesMessage getFacesMessage(FacesContext context, FacesMessage.Severity severity, String msgKey, Object...args) {
 		
 		Locale locale = context.getViewRoot().getLocale();
-		ResourceBundle bundle = ResourceBundle.getBundle(context.getApplication().getMessageBundle(), locale);
+		ResourceBundle bundle = ResourceBundle.getBundle("de.bruxxen.MyGourmet.Messages.messages", locale);
 		String msg = bundle.getString(msgKey);
 		if(args != null) {
 			MessageFormat format = new MessageFormat(msg);
