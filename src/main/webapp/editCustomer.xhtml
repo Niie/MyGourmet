@@ -12,34 +12,56 @@
     <h1><h:outputText value="#{msgs['title_main']}"/></h1>
     <h2><h:outputText value="#{msgs['title_edit_customer']}"/></h2>
     <h:form id="form">
-    	<h:panelGrid id="grid" columns="2">
+    	<h:panelGrid id="grid" columns="3">
+    	
     		<h:outputLabel value="#{msgs['first_name']}:" for="firstName"/>
-    		<h:inputText id="firstName" value="#{customer.firstName}" required="true"/>
-    		<h:outputLabel value="#{msgs['last_name']}:" for="lastName"/>
-    		<h:inputText id="lastName" value="#{customer.lastName}" required="true"/>
-    		<h:outputLabel value="#{msgs['birthday']}:" for="birthday"/>
-    		<h:inputText id="birthday" value="#{customer.birthday}" required="true" validator ="#{birthdayValidator2.validate}">
-    			<f:convertDateTime patter="dd.MM.yyyy"/>
-				
+    		<h:inputText id="firstName" value="#{customer.firstName}" validatorMessage="#{msgs['input_required']}">
+    			<f:validateRequired/>
     			</h:inputText>
+    		<h:message for="firstName" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['last_name']}:" for="lastName"/>
+    		<h:inputText id="lastName" value="#{customer.lastName}" validatorMessage="#{msgs['input_required']}">
+    			<f:validateRequired/>
+    			</h:inputText>
+    		<h:message for="lastName" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['birthday']}:" for="birthday"/>
+    		<h:inputText id="birthday" value="#{customer.birthday}"  >
+    			<f:validateRequired/>
+    			<f:convertDateTime patter="dd.MM.yyyy"/>			
+    			</h:inputText>
+    		<h:message for="birthday" style ="color:red"/>
+    		
     		<h:outputLabel value="#{msgs['city']}:" for="city"/>
-    		<h:inputText id="city" value="#{customer.city}" required="true"/>
+    		<h:inputText id="city" value="#{customer.city}" validatorMessage="#{msgs['input_required']}">
+    			<f:validateRequired/>
+    			</h:inputText>
+        	<h:message for="city" style ="color:red"/>
+    		
     		<h:outputLabel value="#{msgs['zip_code']}:" for="zipCode"/>
-    		<h:inputText id="zipCode" value="#{customer.zipCode}" required="true">
+    		<h:inputText id="zipCode" value="#{customer.zipCode}" validatorMessage="#{msgs['input_required']}">
+    			<f:validateRequired/>
     			<f:converter converterId="de.bruxxen.MyGourmet.Converter.ZipCodeConverter"/>
     			</h:inputText>
+    		<h:message for="zipCode" style ="color:red"/>
+    		
     		<h:outputLabel value="#{msgs['use_credit_card']}" for="useCreditCard"/>
     		<h:selectBooleanCheckbox id="useCreditCard" onclick="this.form.submit()" value="#{customer.useCreditCard}" immediate ="true" 
     			valueChangeListener="#{customer.useCreditCardChanged}"/>
+    		<h:message for="useCreditCard" style ="color:red"/>
+    		
     		<h:outputLabel value="#{msgs['crdit_card-type']}: " for="ccType" rendered="#{customer.useCreditCard}"/>
 	    	<h:selectOneListbox id="ccType" value="#{customer.creditCard.name}" rendered="#{customer.useCreditCard}">
 	    		<f:selectItems value="#{creditCards.possibleCardTypes}"></f:selectItems>
 	    		<f:event listener="#{creditCardValidator.postValidateCCType}" type="javax.faces.event.PostValidateEvent"></f:event>
 	    		</h:selectOneListbox>
+	    	<h:message for="ccType" style ="color:red"/>
 	    	
 	    	<h:outputLabel value="#{msgs['credit_card_number']}:" for="ccNumber" rendered="#{customer.useCreditCard}"/>
 	    	<h:inputText id="ccNumber" value="#{customer.creditCardNumber}" rendered="#{customer.useCreditCard}" required="true"
 	    		validator ="#{creditCardValidator.validate}"/>
+    		<h:message for="ccNumber" style ="color:red"/>
     		
     	</h:panelGrid>
     	<h:commandButton id="save" value="#{msgs['save']}" action="/showCustomer.xhtml"/>
