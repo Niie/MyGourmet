@@ -1,10 +1,7 @@
 package de.bruxxen.MyGourmet.Model;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean
@@ -20,7 +17,7 @@ public class CreditCards {
 		this.possibleCardTypes.add(new CreditCard("VISA"));
 		this.possibleCardTypes.add(new CreditCard("JCB"));
 	}
-	public ArrayList getPossibleCardTypes(){
+	public ArrayList<CreditCard> getPossibleCardTypes(){
 		return this.possibleCardTypes;
 	}
 }
