@@ -1,6 +1,10 @@
 package de.bruxxen.MyGourmet.Validator;
 
 import java.io.Serializable;
+import java.text.MessageFormat;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -13,6 +17,9 @@ import javax.faces.event.ComponentSystemEvent;
 import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
+
+import org.jboss.logging.Message;
+
 import de.bruxxen.MyGourmet.Model.CreditCard;
 
 @ManagedBean
@@ -30,18 +37,16 @@ public class CreditCardValidator implements Validator, Serializable {
 		if(currentCC != null) {
 			String ccNumber = String.valueOf(value);
 			if (ccNumber.length() != currentCC.getNumberLength()) {
-				String msgText = this.chosenCC + " Card number invalid! Card number must consist " + currentCC.getNumberLength() + " digits!";
-				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, msgText, null);
+				Locale locale = context.getViewRoot().getLocale();
+				ResourceBundle bundle = ResourceBundle.getBundle("de.bruxxen.MyGourmet.Messages.messages");
+				String msgString = MessageFormat.format(bundle.getString("validateCreditCardNumber.NUMBER"), currentCC.getNumberLength());
+				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, msgString, null);				
 				throw new ValidatorException(msg);
 			}
 		}
-		
-	}
-	
+	}	
 	public void postValidateCCType(ComponentSystemEvent event) {
 		UIInput input = (UIInput) event.getComponent();
 		this.chosenCC = (String) input.getValue();
-		
 	}
-
 }
