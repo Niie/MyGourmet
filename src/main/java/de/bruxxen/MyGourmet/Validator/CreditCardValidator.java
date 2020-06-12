@@ -3,6 +3,7 @@ package de.bruxxen.MyGourmet.Validator;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
@@ -15,7 +16,7 @@ import javax.faces.validator.ValidatorException;
 import de.bruxxen.MyGourmet.Model.CreditCard;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 @FacesValidator("de.bruxxen.MyGourmet.Validator.CreditCardValidator")
 public class CreditCardValidator implements Validator, Serializable {
 	private static final long serialVersionUID = 1L;
