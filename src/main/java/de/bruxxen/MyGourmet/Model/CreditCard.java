@@ -1,7 +1,7 @@
 package de.bruxxen.MyGourmet.Model;
 
 public class CreditCard {
-	private String name;
+	private String name = "Mastercard";
 	private int numberLength = 0;
 
 	public CreditCard(String name) {
@@ -26,19 +26,10 @@ public class CreditCard {
 		return this.name;
 	}
 	private void setNumberLengthByCCName() {
-		switch(this.name) {
-		case "Mastercard":
-			this.numberLength = 5;
-			break;
-		case "VISA":
-			this.numberLength = 6;
-			break;
-		case "JCB":
-			this.numberLength = 8;
-			break;	
-		default:
-			break;
+		if(this.name.equalsIgnoreCase("Mastercard"))	this.setNumberLength(4);
+		else if(this.name.equalsIgnoreCase("VISA"))		this.setNumberLength(5);
+		else if(this.name.equalsIgnoreCase("JCB"))		this.setNumberLength(6);
+		else											this.setNumberLength(8);
 
-		}
 	}
 }
