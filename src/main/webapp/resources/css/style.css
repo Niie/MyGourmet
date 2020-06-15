@@ -18,7 +18,7 @@
  */
 
 body {
-    background-color: rgb(0, 35, 75);
+    background-color: #F8F8F8;
     font-family: tahoma, arial, helvetica, sans-serif;
     font-size: 12px;
 }
@@ -32,4 +32,29 @@ body {
 
 h1 {
     font-size: 20px;
+    background-color: #D0D0D0;
+}
+table {
+  width: 50%;
+}
+
+thead{
+	background-color: #D0D0D0;
+	text-align: left;
+}
+th{
+	text-align: left;
+}
+
+.buttons{
+    background: #eee url(path/to/apply.png) no-repeat 0 50%;
+    min-width: 150px;
+} 
+.extraNav{
+    position: absolute;
+	right: 10px;
+	top: 5px;
+} 
+.extraNav input{
+	min-width:150px;
 }

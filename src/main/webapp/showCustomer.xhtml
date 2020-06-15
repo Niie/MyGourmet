@@ -8,6 +8,7 @@
       
       
 <h:head> 	
+	<h:outputStylesheet library="css" name="style.css"  />
 	<title>MyGourmet - Show Customer</title>
 </h:head>
 	
@@ -87,9 +88,13 @@
   		</h:dataTable>
    	</h:form>
   	<h:form>
-  		<h:commandButton id="english" value="#{localMessage.getOppositeLocale()}" action="#{localMessage.changeLocal()}" immediate="true"/>
-  		<h:commandButton action="/editCustomer.xhtml" value="#{msgs['toEditCustomer']}"/>
-  		<h:commandButton id="testCustomer" value="TestCustomer" action="#{customer.testCustomer()}" immediate="true"/>
+  		<h:commandButton action="/editCustomer.xhtml" value="#{msgs['toEditCustomer']}" styleClass="buttons"/>
   	</h:form>
+  	<h:form>
+  		<h:panelGrid styleClass="extraNav" columns="1">
+  			<h:commandButton id="english" value="#{localMessage.getOppositeLocale()}" action="#{localMessage.changeLocal()}" immediate="true"/>
+ 			<h:commandButton id="testCustomer" value="TestCustomer" action="#{customer.testCustomer()}" immediate="true"/>
+  		</h:panelGrid>
+ 	</h:form>
 </body>
 </html>

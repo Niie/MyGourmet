@@ -6,10 +6,12 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
+	<h:outputStylesheet library="css" name="style.css"  />
     <title>My Gourmet - Edit Customer</title>
 </h:head>
 <h:body>
-    <h1><h:outputText value="#{msgs['title_main']}"/></h1>
+    <h1>
+    	<h:outputText value="#{msgs['title_main']}"/></h1>
     <h2><h:outputText value="#{msgs['title_add_adress']}"/></h2>
     
      <h:form id="form">
@@ -40,9 +42,14 @@
     		<h:message for="country" style ="color:red"/>
 	
     	</h:panelGrid>
-    	<h:commandButton id="save" value="#{msgs['save']}" action="#{customer.addAdress(adress)}"/>
-    	<h:commandButton id="cancel" value="#{msgs['cancel']}" action="/editCustomer.xhtml" immediate="true"/>
+    	<h:commandButton id="save" value="#{msgs['save']}" styleClass="buttons" action="#{customer.addAdress(adress)}"/>
+    	<h:commandButton id="cancel" value="#{msgs['cancel']}" styleClass="buttons" action="/showCustomer.xhtml" immediate="true"/>
     </h:form>
+    <h:form>
+  		<h:panelGrid styleClass="extraNav" columns="1">
+  			<h:commandButton id="english" value="#{localMessage.getOppositeLocale()}" action="#{localMessage.changeLocal()}" immediate="true"/>
+  		</h:panelGrid>
+ 	</h:form>
     
 </h:body>
 </html>
