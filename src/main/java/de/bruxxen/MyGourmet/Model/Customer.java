@@ -182,6 +182,10 @@ public class Customer {
 		this.creditCard = new CreditCard("Mastercard");
 		this.creditCard.setCardNumber(1234);
 		
-		return "/editCustomer.xhtml";
+		this.adresses.add(new Adress(12345, "LocalCity", "NortStreet 2", "Germany"));
+		this.adresses.add(new Adress(65435, "Princesscastle", "Fairytail", "Farfaraway"));
+		this.adresses.add(new Adress(12345, "MoonCity", "Behind the earth", "Moon"));
+		
+		return "/showCustomer.xhtml";
 	}
 }

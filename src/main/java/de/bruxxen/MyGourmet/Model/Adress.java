@@ -9,6 +9,16 @@ public class Adress {
 	private int zipCode;
 	private String city, street, country;
 	
+	public Adress() {
+		
+	}
+	public Adress(int zipCode, String city, String street, String country) {
+		this.zipCode = zipCode;
+		this.city = city;
+		this.street = street;
+		this.country = country;
+	}
+	
 	public int getZipCode() {
 		return this.zipCode;
 	}
