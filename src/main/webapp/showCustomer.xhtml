@@ -27,6 +27,14 @@
   		<h:outputText value="#{customer.city}"/>
   		<h:outputText value="Zip Code:"/>
   		<h:outputText value="#{customer.zipCode}"/>
+  	
+  		<h:outputText value="Preferred Food:"/>
+  		<h:dataTable value="#{customer.preferredCategories}" var="categorie">
+  			<h:column>
+  				<h:outputText value="#{categorie}"/>
+  			</h:column>
+  		</h:dataTable>
+  		
   		<h:outputText value="Credit Card Type:" rendered="#{customer.useCreditCard}"/>
   		<h:outputText value="#{customer.creditCardType}" rendered="#{customer.useCreditCard}"/>
   		<h:outputText value="Credit Card Number:" rendered="#{customer.useCreditCard}"/>

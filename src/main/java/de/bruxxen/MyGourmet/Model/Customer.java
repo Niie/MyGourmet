@@ -2,7 +2,9 @@ package de.bruxxen.MyGourmet.Model;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -28,6 +30,7 @@ public class Customer {
 	private Date birthday;
 	private int zipCode;
 	private String city, street;
+	private List<String> preferredCategories = new ArrayList<String>();
 
 	public String getFirstName() {
 		return this.firstName;
@@ -46,8 +49,7 @@ public class Customer {
 	}
 	public void setMale(boolean male) {
 		this.male = male;
-	}
-	
+	}	
 	public boolean getUseCreditCard() {
 		return this.useCreditCard;
 	}
@@ -93,6 +95,12 @@ public class Customer {
 	}
 	public void setStreet(String street) {
 		this.street = street;
+	}
+	public List<String> getPreferredCategories(){
+		return this.preferredCategories;
+	}
+	public void setPreferredCategories(List<String> preferredCategories) {
+		this.preferredCategories = preferredCategories;
 	}
 	
 	public String export() {

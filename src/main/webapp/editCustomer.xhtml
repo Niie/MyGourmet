@@ -52,6 +52,15 @@
     			</h:inputText>
     		<h:message for="zipCode" style ="color:red"/>
     		
+    		<h:outputLabel value="#{msgs['prefferedFood']}" for="prefCat"/>
+    		<h:selectManyCheckbox id="prefCat"  layout="pageDirection" value="#{customer.preferredCategories}">
+    			<f:selectItem itemLabel="#{msgs['italian']}" itemValue="IT"/>    
+    			<f:selectItem itemLabel="#{msgs['greek']}" itemValue="GR"/>   
+    			<f:selectItem itemLabel="#{msgs['german']}" itemValue="DE"/>     
+    			<f:selectItem itemLabel="#{msgs['turkish']}" itemValue="TUR"/>      		
+    		</h:selectManyCheckbox>
+    		<h:message for="prefCat" style ="color:red"/>
+    		
     		<h:outputLabel value="#{msgs['use_credit_card']}" for="useCreditCard"/>
     		<h:selectBooleanCheckbox id="useCreditCard" onclick="this.form.submit()" value="#{customer.useCreditCard}" immediate ="true" 
     			valueChangeListener="#{customer.useCreditCardChanged}"/>
