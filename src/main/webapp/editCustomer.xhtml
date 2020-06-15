@@ -13,6 +13,12 @@
     <h2><h:outputText value="#{msgs['title_edit_customer']}"/></h2>
     <h:form id="form">
     	<h:panelGrid id="grid" columns="3">
+    		<h:outputLabel/>
+    	    <h:selectOneRadio id="gender" required="true" value="#{customer.male}">
+    			<f:selectItem itemLabel="#{msgs['misses']}" itemValue="false"/>
+    			<f:selectItem itemLabel="#{msgs['mister']}" itemValue="true"/>
+    		</h:selectOneRadio>
+    		<h:message for="gender" style ="color:red"/>
     	
     		<h:outputLabel value="#{msgs['first_name']}:" for="firstName"/>
     		<h:inputText id="firstName" value="#{customer.firstName}" validatorMessage="#{msgs['input_required']}">
@@ -36,7 +42,7 @@
     		<h:outputLabel value="#{msgs['city']}:" for="city"/>
     		<h:inputText id="city" value="#{customer.city}" validatorMessage="#{msgs['input_required']}">
     			<f:validateRequired/>
-    			</h:inputText>
+     			</h:inputText>
         	<h:message for="city" style ="color:red"/>
     		
     		<h:outputLabel value="#{msgs['zip_code']}:" for="zipCode"/>

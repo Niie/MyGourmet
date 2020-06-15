@@ -20,14 +20,12 @@ import de.bruxxen.MyGourmet.Interfaces.Annotation.Birthday;
 @SessionScoped
 public class Customer {
 
-	@NotNull(message = "Name cannot be null")
 	private String firstName, lastName;	
+	private boolean male;
 	public boolean useCreditCard = false;
 	private CreditCard creditCard = new CreditCard("VISA");
 	private int creditCardNumber;
-	@Birthday	
 	private Date birthday;
-	@Min (value=9999)@Max(value=99999)
 	private int zipCode;
 	private String city, street;
 
@@ -43,6 +41,13 @@ public class Customer {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}	
+	public boolean isMale(){
+		return this.male;
+	}
+	public void setMale(boolean male) {
+		this.male = male;
+	}
+	
 	public boolean getUseCreditCard() {
 		return this.useCreditCard;
 	}
