@@ -3,6 +3,7 @@ package de.bruxxen.MyGourmet.Model;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -26,10 +27,10 @@ public class Customer {
 	private boolean male;
 	public boolean useCreditCard = false;
 	private CreditCard creditCard = new CreditCard("VISA");
-	private int creditCardNumber;
+	//private int creditCardNumber;
 	private Date birthday;
 	private int zipCode;
-	private String city, street;
+	private String city, street, mail;
 	private List<String> preferredCategories = new ArrayList<String>();
 
 	public String getFirstName() {
@@ -43,6 +44,12 @@ public class Customer {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}	
+	public String getMail() {
+		return this.mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
 	}	
 	public boolean isMale(){
 		return this.male;
@@ -61,12 +68,6 @@ public class Customer {
 	}
 	public void setCreditCard(CreditCard creditCard) {
 		this.creditCard = creditCard;
-	}
-	public int getCreditCardNumber() {
-		return this.creditCardNumber;
-	}
-	public void setCreditCardNumber(int creditCardNumber) {
-		this.creditCardNumber = creditCardNumber;
 	}	
 	public void useCreditCardChanged(ValueChangeEvent e) {
 		this.useCreditCard =! this.useCreditCard;
@@ -121,7 +122,7 @@ public class Customer {
 				writer.print(this.creditCard);
 				writer.println();
 				writer.print("Credit Card Number: ");
-				writer.print(this.creditCardNumber);
+				writer.print(this.creditCard.getCardNumber());
 				writer.println();
 			}
 			writer.close();
@@ -130,5 +131,30 @@ public class Customer {
 			e.printStackTrace();
 		}
 		return null;		
+	}
+	public String testCustomer() {
+		this.firstName = "Andreas";
+		this.lastName = "Schumm";
+		this.city = "TestCity";
+		this.zipCode = 12345;
+		this.mail = "testMail@testServer.de";
+		
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, 1900);
+		cal.set(Calendar.MONTH, 0);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+		this.birthday = cal.getTime();
+		
+		this.preferredCategories = new ArrayList<String>();
+		this.preferredCategories.add("DE");
+		this.preferredCategories.add("TUR");
+		
+		this.useCreditCard = true;
+		this.creditCard = new CreditCard("Mastercard");
+		this.creditCard.setCardNumber(1234);
+		
+		return "/editCustomer.xhtml";
+		
+	
 	}
 }

@@ -3,6 +3,7 @@ package de.bruxxen.MyGourmet.Model;
 public class CreditCard {
 	private String name = "Mastercard";
 	private int numberLength = 0;
+	private int cardNumber;
 
 	public CreditCard(String name) {
 		this.name = name;
@@ -16,6 +17,13 @@ public class CreditCard {
 		this.name = name;
 		this.setNumberLengthByCCName();
 	}
+	public int getCardNumber() {
+		return this.cardNumber;
+	}
+	public void setCardNumber(int cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+	
 	public int getNumberLength() {
 		return this.numberLength;
 	}
