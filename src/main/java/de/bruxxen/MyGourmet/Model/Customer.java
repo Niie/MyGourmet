@@ -27,9 +27,10 @@ public class Customer {
 	private boolean male;
 	public boolean useCreditCard = false;
 	private CreditCard creditCard = new CreditCard("VISA");
-	//private int creditCardNumber;
 	private Date birthday;
 	private int zipCode;
+	private List<Adress> adresses = new ArrayList<Adress>();
+	private Adress currentAdress;
 	private String city, street, mail;
 	private List<String> preferredCategories = new ArrayList<String>();
 
@@ -103,6 +104,18 @@ public class Customer {
 	public void setPreferredCategories(List<String> preferredCategories) {
 		this.preferredCategories = preferredCategories;
 	}
+	public List<Adress> getAdresses(){
+		return this.adresses;
+	}
+	public void setAdresses(List<Adress> adresses) {
+		this.adresses = adresses;
+	}	
+	public Adress getCurrentAdress() {
+		return this.currentAdress;
+	}
+	public void setCurrentAdress(Adress currentAdress) {
+		this.currentAdress = currentAdress;
+	}
 	
 	public String export() {
 		FacesContext fContext = FacesContext.getCurrentInstance();
@@ -132,7 +145,23 @@ public class Customer {
 		}
 		return null;		
 	}
+	
+	public String addAdress(Adress adress) {
+		this.adresses.add(adress);
+		return "/showCustomer.xhtml";
+	}
+	
+	public String editAdress(Adress adress) {
+		this.setCurrentAdress(adress);
+		return "/editAdress.xhtml";
+	}
+	
+	public void deleteAdress(Adress adress) {
+		this.adresses.remove(adress);
+	}
+	
 	public String testCustomer() {
+		this.male = true;
 		this.firstName = "Andreas";
 		this.lastName = "Schumm";
 		this.city = "TestCity";
@@ -154,7 +183,5 @@ public class Customer {
 		this.creditCard.setCardNumber(1234);
 		
 		return "/editCustomer.xhtml";
-		
-	
 	}
 }

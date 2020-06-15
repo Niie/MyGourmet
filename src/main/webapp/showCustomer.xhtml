@@ -12,8 +12,8 @@
 </h:head>
 	
 <body>
- 	<h1><h:outputText value="MyGourmet"/></h1>
-   	<h2><h:outputText value="Show Customer"/></h2>
+ 	<h1><h:outputText value="#{msgs['title_main']}"/></h1>
+   	<h2><h:outputText value="#{msgs['title_show_customer']}"/></h2>
    	<h:panelGrid id="grid" columns="2">
    	
    		<h:panelGroup/>   	
@@ -50,10 +50,42 @@
   		<h:outputText value="#{customer.creditCard.name}" rendered="#{customer.useCreditCard}"/>
   		
   		<h:outputText value="#{msgs['credit_card_number']}:" rendered="#{customer.useCreditCard}"/>
-  		<h:outputText value="#{customer.creditCard.cardNumber}" rendered="#{customer.useCreditCard}"/>
-  		
+  		<h:outputText value="#{customer.creditCard.cardNumber}" rendered="#{customer.useCreditCard}"/>	
    	</h:panelGrid>
-  	<h:outputText value="Customer saved successfully"/>
+   	
+   	   	<h2><h:outputText value="#{msgs['adresses']}"/></h2>
+   	   	<h:link value="#{msgs['title_add_adress']}" outcome="/addAdress.xhtml"/>
+   	   	<br/><br/>
+   	   	<h:outputText value="#{msgs['adresses']}:"/>
+   	   	<h:form>
+  		<h:dataTable value="#{customer.adresses}" var="adress">
+  			<h:column>
+  			<f:facet name="header">
+  				<h:outputText value="#{msgs['zip_code']}"/>
+  			</f:facet>
+  				<h:outputText value="#{adress.zipCode}"/>
+  			</h:column>
+  			<h:column>
+  			<f:facet name="header">
+  				<h:outputText value="#{msgs['city']}"/>
+  			</f:facet>
+  				<h:outputText value="#{adress.city}"/>
+  			</h:column>
+  			<h:column>
+  			<f:facet name="header">
+  				<h:outputText value="#{msgs['street']}"/>
+  			</f:facet>
+  				<h:outputText value="#{adress.street}"/>
+  			</h:column>
+  			<h:column>
+
+  				<h:commandLink value="#{msgs['edit']}" action="#{customer.editAdress(adress)}"/>
+  			</h:column>
+  			<h:column>
+  				<h:commandLink value="#{msgs['delete']}" action="#{customer.deleteAdress(adress)}"/>
+  			</h:column>
+  		</h:dataTable>
+   	</h:form>
   	<h:form>
   		<h:commandButton id="english" value="#{localMessage.getOppositeLocale()}" action="#{localMessage.changeLocal()}" immediate="true"/>
   		<h:commandButton action="/editCustomer.xhtml" value="#{msgs['toEditCustomer']}"/>
