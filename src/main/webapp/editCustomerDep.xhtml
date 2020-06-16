@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:mg="http://de.bruxxen/mygourmet"  
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<h:outputStylesheet library="css" name="style.css"  />
+    <title>My Gourmet - Edit Customer</title>
+</h:head>
+<h:body>
+    <ui:include src="/includes/header.xhtml">    
+ 		<ui:param name="pageTitle" value="#{msgs['title_edit_customer']}"></ui:param>
+ 	</ui:include>
+    <h:form id="form">
+    	<h:panelGrid id="grid" columns="3">
+    		<h:outputLabel/>
+    	    <h:selectOneRadio id="gender" required="true" value="#{customer.male}">
+    			<f:selectItem itemLabel="#{msgs['misses']}" itemValue="false"/>
+    			<f:selectItem itemLabel="#{msgs['mister']}" itemValue="true"/>
+    		</h:selectOneRadio>
+    		<h:message for="gender" style ="color:red"/>
+    	
+    		<h:outputLabel value="#{msgs['first_name']}:" for="firstName"/>
+    		<h:inputText id="firstName" value="#{customer.firstName}" validatorMessage="#{msgs['input_required']}">
+    			<f:validateRequired/>
+    			</h:inputText>
+    			<h:message for="firstName" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['last_name']}:" for="lastName"/>
+    		<h:inputText id="lastName" value="#{customer.lastName}" validatorMessage="#{msgs['input_required']}">
+    			<f:validateRequired/>
+    			</h:inputText>
+    		<h:message for="lastName" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['mail']}" for="mail"/>
+    		<h:inputText id="mail" value="#{customer.mail}" validatorMessage="#{msgs['wrong_mail']}">
+    			<f:validateRequired/>
+    			<f:validateRegex pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
+    			</h:inputText>
+    		<h:message for="mail" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['birthday']}:" for="birthday"/>
+    		<h:inputText id="birthday" value="#{customer.birthday}"   >
+    			<f:validateRequired/>
+    			<f:convertDateTime pattern="dd.MM.yyyy"/>		
+    			<mg:validateAge/>	
+    			</h:inputText>
+    		<h:message for="birthday" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['city']}:" for="city"/>
+    		<h:inputText id="city" value="#{customer.city}" validatorMessage="#{msgs['input_required']}">
+    			<f:validateRequired/>
+     			</h:inputText>
+        	<h:message for="city" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['zip_code']}:" for="zipCode"/>
+    		<h:inputText id="zipCode" value="#{customer.zipCode}" validatorMessage="#{msgs['input_required']}">
+    			<mg:convertZipCode/>
+    			</h:inputText>
+    		<h:message for="zipCode" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['prefferedFood']}" for="prefCat"/>
+    		<h:selectManyCheckbox id="prefCat"  layout="pageDirection" value="#{customer.preferredCategories}">
+    			<f:selectItem itemLabel="#{msgs['italian']}" itemValue="IT"/>    
+    			<f:selectItem itemLabel="#{msgs['greek']}" itemValue="GR"/>   
+    			<f:selectItem itemLabel="#{msgs['german']}" itemValue="DE"/>     
+    			<f:selectItem itemLabel="#{msgs['turkish']}" itemValue="TUR"/>      		
+    		</h:selectManyCheckbox>
+    		<h:message for="prefCat" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['use_credit_card']}" for="useCreditCard"/>
+    		<h:selectBooleanCheckbox id="useCreditCard" onclick="this.form.submit()" value="#{customer.useCreditCard}" immediate ="true" 
+    			valueChangeListener="#{customer.useCreditCardChanged}"/>
+    		<h:message for="useCreditCard" style ="color:red"/>
+    		
+    		<h:outputLabel value="#{msgs['crdit_card-type']}: " for="ccType" rendered="#{customer.useCreditCard}"/>
+	    	<h:selectOneListbox id="ccType" value="#{customer.creditCard.name}" rendered="#{customer.useCreditCard}">
+	    		<f:selectItems value="#{creditCards.possibleCardTypes}"></f:selectItems>
+	    		<f:event listener="#{creditCardValidator.postValidateCCType}" type="javax.faces.event.PostValidateEvent"></f:event>
+	    		</h:selectOneListbox>
+	    	<h:message for="ccType" style ="color:red"/>
+	    	
+	    	<h:outputLabel value="#{msgs['credit_card_number']}:" for="ccNumber" rendered="#{customer.useCreditCard}"/>
+	    	<h:inputText id="ccNumber" value="#{customer.creditCard.cardNumber}" rendered="#{customer.useCreditCard}" required="true"
+	    		validator ="#{creditCardValidator.validate}"/>
+    		<h:message for="ccNumber" style ="color:red"/>
+    		
+    	</h:panelGrid>
+    	<h:commandButton id="save" value="#{msgs['save']}" styleClass="buttons" action="/showCustomer.xhtml"/>
+    	<h:commandButton id="cancel" value="#{msgs['cancel']}" action="/showCustomer.xhtml" styleClass="buttons" immediate="true"/>
+    </h:form>
+    <h:form>
+  		<h:panelGrid styleClass="extraNav" columns="1">
+  			<h:commandButton id="english" value="#{localMessage.getOppositeLocale()}" action="#{localMessage.changeLocal()}" immediate="true"/>
+ 			<h:commandButton id="testCustomer" value="TestCustomer" action="#{customer.testCustomer()}" immediate="true"/>
+  		</h:panelGrid>
+ 	</h:form>
+</h:body>
+</html>
