@@ -8,6 +8,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<h:outputStylesheet library="css" name="style.css"  />
+	<h:outputStylesheet library="css" name="left_sidebar.css"  />
     <title>My Gourmet</title>
 </h:head>
 <h:body>
@@ -23,7 +24,9 @@
 		</div>
      	<div id="left_sidebar">
      		<ui:insert name="left_sidebar">
-     			leftCol
+     			<ui:decorate template="/templates/leftSideBar.xhtml">>
+     				
+     			</ui:decorate>
      		</ui:insert>
      	</div>
      	<div id="content">
