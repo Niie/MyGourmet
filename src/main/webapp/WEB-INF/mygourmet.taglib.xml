@@ -1,0 +1,17 @@
+<facelet-taglib version="2.2"
+ xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="hhtp://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee web-facelettaglibrary_2_2.xsd">
+ 	<namespace>http://de.bruxxen/mygourmet</namespace>
+	 <function>
+	 	<function-name>getAge</function-name>
+	 	<function-class>de.bruxxen.MyGourmet.Controller.MyGourmetUtil</function-class>
+	 	<function-signature>int getAge(java.util.Date)</function-signature>
+	 </function>
+	 <tag>
+	 	<tag-name>convertZipCode</tag-name>
+	 	<converter>
+	 		<converter-id>de.bruxxen.MyGourmet.Converter.ZipCodeConverter</converter-id>
+	 	</converter>
+	 </tag>
+  </facelet-taglib>

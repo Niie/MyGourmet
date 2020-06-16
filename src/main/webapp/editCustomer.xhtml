@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:mg="http://de.bruxxen/mygourmet"  
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<h:outputStylesheet library="css" name="style.css"  />
@@ -57,8 +58,7 @@
     		
     		<h:outputLabel value="#{msgs['zip_code']}:" for="zipCode"/>
     		<h:inputText id="zipCode" value="#{customer.zipCode}" validatorMessage="#{msgs['input_required']}">
-    			<f:validateRequired/>
-    			<f:converter converterId="de.bruxxen.MyGourmet.Converter.ZipCodeConverter"/>
+    			<mg:convertZipCode/>
     			</h:inputText>
     		<h:message for="zipCode" style ="color:red"/>
     		
