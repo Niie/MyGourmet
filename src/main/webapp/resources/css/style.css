@@ -29,11 +29,6 @@ body {
     background-color: white;
     padding: 3px;
 }
-
-h1 {
-    font-size: 20px;
-    background-color: #D0D0D0;
-}
 table {
   width: 50%;
 }
@@ -57,4 +52,18 @@ th{
 } 
 .extraNav input{
 	min-width:150px;
+}
+#headerLogo{
+	width:50px;
+	height:50px
+}
+#headerH1{
+	display: inline;
+	margin-left: 5px;
+	font-size:40px;
+}
+#headerPanel{
+	width:100%;
+	heigth: 40px;
+	layout:block;
 }
