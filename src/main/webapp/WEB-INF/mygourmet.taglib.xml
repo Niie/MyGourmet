@@ -14,4 +14,10 @@
 	 		<converter-id>de.bruxxen.MyGourmet.Converter.ZipCodeConverter</converter-id>
 	 	</converter>
 	 </tag>
+	 <tag>
+	 	<tag-name>validateAge</tag-name>
+	 	<validator>
+	 		<validator-id>de.bruxxen.MyGourmet.Validator.BirthdayValidator2</validator-id>
+	 	</validator>
+	 </tag>
   </facelet-taglib>

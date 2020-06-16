@@ -46,7 +46,8 @@
     		<h:outputLabel value="#{msgs['birthday']}:" for="birthday"/>
     		<h:inputText id="birthday" value="#{customer.birthday}"   >
     			<f:validateRequired/>
-    			<f:convertDateTime pattern="dd.MM.yyyy"/>			
+    			<f:convertDateTime pattern="dd.MM.yyyy"/>		
+    			<mg:validateAge/>	
     			</h:inputText>
     		<h:message for="birthday" style ="color:red"/>
     		
