@@ -13,7 +13,6 @@ public class ReplaceConverter implements Converter {
 			return null;
 		}
 	}
-
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		if (value != null) {
 			return value.toString();

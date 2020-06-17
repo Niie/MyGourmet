@@ -50,7 +50,7 @@
    	</h:panelGrid>
    	
    	   	<h2><h:outputText value="#{msgs['adresses']}"/></h2>
-   	   	<h:link value="#{msgs['title_add_adress']}" outcome="/addAdress.xhtml"/>
+   	   	<h:link value="#{msgs['title_add_adress']}" outcome="#{user.getDirect('/addAdress.xhtml')}"/>
    	   	<br/><br/>
    	   	<h:outputText value="#{msgs['adresses']}:"/>
    	   	<h:form>
@@ -75,7 +75,9 @@
   			</h:column>
   			<h:column>
 
-  				<h:commandLink value="#{msgs['edit']}" action="#{customer.editAdress(adress)}"/>
+  				<h:commandLink value="#{msgs['edit']}" action="#{user.getDirect('/editAdress.xhtml')}">
+  					<f:actionListener binding="#{customer.editAdress(adress)}"/>
+  					</h:commandLink>
   			</h:column>
   			<h:column>
   				<h:commandLink value="#{msgs['delete']}" action="#{customer.deleteAdress(adress)}"/>
@@ -83,12 +85,13 @@
   		</h:dataTable>
    	</h:form>
   	<h:form>
-  		<h:commandButton action="/editCustomer.xhtml" value="#{msgs['toEditCustomer']}" styleClass="buttons"/>
+  		<h:commandButton action="#{user.getDirect('/editCustomer.xhtml')}" value="#{msgs['toEditCustomer']}" styleClass="buttons"/>
   	</h:form>
   	<h:form>
   		<h:panelGrid styleClass="extraNav" columns="1">
   			<h:commandButton id="english" value="#{localMessage.getOppositeLocale()}" action="#{localMessage.changeLocal()}" immediate="true"/>
  			<h:commandButton id="testCustomer" value="TestCustomer" action="#{customer.testCustomer()}" immediate="true"/>
+ 			<h:commandButton id="switchContract" value="switchContract" action="#{user.switchContract()}"/>
   		</h:panelGrid>
  	</h:form>
 	

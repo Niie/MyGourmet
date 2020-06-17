@@ -83,8 +83,8 @@
 	    		<h:message for="ccNumber" style ="color:red"/>
 	    		
 	    	</h:panelGrid>
-	    	<h:commandButton id="save" value="#{msgs['save']}" styleClass="buttons" action="/showCustomer.xhtml"/>
-	    	<h:commandButton id="cancel" value="#{msgs['cancel']}" action="/showCustomer.xhtml" styleClass="buttons" immediate="true"/>
+	    	<h:commandButton id="save" value="#{msgs['save']}" styleClass="buttons" action="#{user.getDirect('/showCustomer.xhtml')}"/>
+	    	<h:commandButton id="cancel" value="#{msgs['cancel']}" action="#{user.getDirect('/showCustomer.xhtml')}" styleClass="buttons" immediate="true"/>
 	    </h:form>
 	    <h:form>
 	  		<h:panelGrid styleClass="extraNav" columns="1">

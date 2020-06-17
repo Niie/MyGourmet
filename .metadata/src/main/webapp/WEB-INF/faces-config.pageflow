@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15917797993730" configfile="/MyGourmet/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="editCustomer" id="pf15917800762481" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15917800762492" path="/editCustomer"/>
-  <nodes xsi:type="pageflow:PFPage" name="showCustomer.xhtml" x="228" id="pf15917800762493" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15917800762492" path="/showCustomer.xhtml"/>
-  <links id="pf15917800762492" target="pf15917800762493" source="pf15917800762481" outcome="ok"/>
+  <nodes xsi:type="pageflow:PFPage" name="editCustomer" id="pf15917800762481" referenceLink="//@navigationRule.0/@fromViewId|" path="/editCustomer"/>
+  <nodes xsi:type="pageflow:PFPage" name="showCustomer.xhtml" x="228" id="pf15917800762493" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/showCustomer.xhtml"/>
 </pageflow:Pageflow>

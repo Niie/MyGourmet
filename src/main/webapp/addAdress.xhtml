@@ -35,8 +35,11 @@
     		<h:message for="country" style ="color:red"/>
 	
     	</h:panelGrid>
-    	<h:commandButton id="save" value="#{msgs['save']}" styleClass="buttons" action="#{customer.addAdress(adress)}"/>
-    	<h:commandButton id="cancel" value="#{msgs['cancel']}" styleClass="buttons" action="/showCustomer.xhtml" immediate="true"/>
+    	<h:commandButton id="save" value="#{msgs['save']}" styleClass="buttons" action="#{user.getDirect('/showCustomer.xhtml')}">
+    		<f:actionListener binding="#{customer.addAdress(adress)}"/>
+    	</h:commandButton>
+    		
+    	<h:commandButton id="cancel" value="#{msgs['cancel']}" styleClass="buttons" action="#{user.getDirect('/showCustomer.xhtml')}" immediate="true"/>
     </h:form>
     <h:form>
   		<h:panelGrid styleClass="extraNav" columns="1">

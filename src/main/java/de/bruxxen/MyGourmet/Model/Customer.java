@@ -146,14 +146,12 @@ public class Customer {
 		return null;		
 	}
 	
-	public String addAdress(Adress adress) {
+	public void addAdress(Adress adress) {
 		this.adresses.add(adress);
-		return "/showCustomer.xhtml";
 	}
 	
-	public String editAdress(Adress adress) {
+	public void editAdress(Adress adress) {
 		this.setCurrentAdress(adress);
-		return "/editAdress.xhtml";
 	}
 	
 	public void deleteAdress(Adress adress) {

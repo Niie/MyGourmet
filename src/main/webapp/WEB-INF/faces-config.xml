@@ -8,8 +8,12 @@
 	<application>
 		<resource-library-contracts>
 			<contract-mapping>
-				<url-pattern>*</url-pattern>
+				<url-pattern>/otherContract/*</url-pattern>
 				<contracts>contract2</contracts>
+			</contract-mapping>
+			<contract-mapping>
+				<url-pattern>*</url-pattern>
+				<contracts>contract1</contracts>
 			</contract-mapping>
 		</resource-library-contracts>
 		<locale-config>
@@ -26,5 +30,4 @@
 			<phase-listener>de.bruxxen.MyGourmet.Listener.DebugPhaseListener</phase-listener>
 			<phase-listener>de.bruxxen.MyGourmet.Listener.ParameterPhaseListener</phase-listener>
 		</lifecycle>
-
 </faces-config>
