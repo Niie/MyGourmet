@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+           
+      <ui:decorate template="/includes/sideBox.xhtml">
+      	<ui:param name="title" value="#{msgs['nav_title']}"></ui:param>
+      	<ui:define name="sideBoxContent">
+      		<h:form>
+      			<h:commandLink action="/showCustomer.xtml">#{msgs['menu_show_customer']}</h:commandLink>
+      			<h:commandLink action="/showProvider.xtml">#{msgs['menu_show_provider']}</h:commandLink>
+      		</h:form>
+      	</ui:define>     
+      </ui:decorate>
+      <br/>
+      <ui:decorate template="/includes/sideBox.xhtml">
+      	<ui:param name="title" value="#{msgs['news']}"></ui:param>
+      	<ui:define name="sideBoxContent">
+      		<h:form>
+      				<a>Das ist ein Beispiel-Text. Hier können z.B. ganz viele neue Nachrichten stehen. </a>
+      		</h:form>
+      	</ui:define>     
+      </ui:decorate>
+</ui:composition>

@@ -1,36 +1,30 @@
-<?xml version="1.0"?>
-<faces-config version="2.0"
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
-	
-<application>
-	<locale-config>
-		<default-locale>de</default-locale>
-		<supported-locale>en</supported-locale>
-	</locale-config>
-	
-	<resource-bundle>
-		<base-name>de.bruxxen.MyGourmet.Messages.messages</base-name>
-		<var>msgs</var>
-	</resource-bundle>
-	<system-event-listener>
-		<system-event-listener-class>de.bruxxen.MyGourmet.Listener.ApplicationListener</system-event-listener-class>
-		<system-event-class>javax.faces.event.PostConstructApplicationEvent</system-event-class>
-	</system-event-listener>
-</application>	
-<navigation-rule>
-	<from-view-id>/editCustomer</from-view-id>
-	<navigation-case>
-			<from-outcome>ok</from-outcome>
-			<to-view-id>/showCustomer.xhtml</to-view-id>
-	</navigation-case>
-</navigation-rule>	
-<lifecycle>
-	<phase-listener>de.bruxxen.MyGourmet.Listener.DebugPhaseListener</phase-listener>
-	<phase-listener>de.bruxxen.MyGourmet.Listener.ParameterPhaseListener</phase-listener>
-</lifecycle>
-	
+<faces-config 
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+        				http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+
+	<application>
+		<resource-library-contracts>
+			<contract-mapping>
+				<url-pattern>*</url-pattern>
+				<contracts>contract2</contracts>
+			</contract-mapping>
+		</resource-library-contracts>
+		<locale-config>
+			<default-locale>de</default-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>
+		
+		<resource-bundle>
+			<base-name>de.bruxxen.MyGourmet.Messages.messages</base-name>
+			<var>msgs</var>
+		</resource-bundle>		
+	</application>	
+	<lifecycle>
+			<phase-listener>de.bruxxen.MyGourmet.Listener.DebugPhaseListener</phase-listener>
+			<phase-listener>de.bruxxen.MyGourmet.Listener.ParameterPhaseListener</phase-listener>
+		</lifecycle>
+
 </faces-config>
-        

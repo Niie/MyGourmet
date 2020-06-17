@@ -1,0 +1,81 @@
+body {
+    background-color: #F8F8F8;
+    font-family: tahoma, arial, helvetica, sans-serif;
+    font-size: 12px;
+}
+
+#container {
+    margin: 10px auto;
+    width: 900px;
+    background-color: white;
+    padding: 3px;
+}
+table {
+  width: 50%;
+}
+
+thead{
+	background-color: #D0D0D0;
+	text-align: left;
+}
+th{
+	text-align: left;
+}
+
+.buttons{
+    background: #eee url(path/to/apply.png) no-repeat 0 50%;
+    min-width: 150px;
+} 
+.extraNav{
+    position: absolute;
+	right: 10px;
+	top: 5px;
+} 
+.extraNav input{
+	min-width:150px;
+}
+.test{
+	background-color:red;
+	width:100%;
+}
+#header{
+	clear: both;
+	height:70px;
+}
+#headerLogo{
+	width:50px;
+	height:50px
+}
+#headerH1{
+	display: inline;
+	margin-left: 5px;
+	font-size:40px;
+}
+#headerPanel{
+	width:100%;
+	heigth: 40px;
+	layout:block;
+}
+#left_sidebar{
+	float: left;
+	width: 200px;
+	min-height:70%;
+}
+#content{
+	float: right;
+	width: calc(100% - 200px);
+	min-height:100%; 
+	height: 100%;
+}
+#footer{
+	clear: both;
+	background-color:grey;
+	height: 80px;
+}
+#wrapper {
+	position:absolute;
+	width: 100%;
+	margin: 0 auto;
+	min-height:90%; 
+	height: 90%; 
+}

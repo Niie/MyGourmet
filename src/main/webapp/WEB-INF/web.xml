@@ -23,10 +23,13 @@
         version="2.5">
 
     <description>MyProject web.xml</description>
-
 	<context-param>
    		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
     	<param-value>/WEB-INF/mygourmet.taglib.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.WEBAPP_CONTRACTS_DIRECTORY</param-name>
+		<param-value>/resources/contracts</param-value>
 	</context-param>
     
     <context-param>
