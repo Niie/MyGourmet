@@ -169,7 +169,7 @@ public class Customer {
 		this.mail = "testMail@testServer.de";
 		
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 1900);
+		cal.set(Calendar.YEAR, 1980);
 		cal.set(Calendar.MONTH, 0);
 		cal.set(Calendar.DAY_OF_MONTH, 1);
 		this.birthday = cal.getTime();
