@@ -1,0 +1,23 @@
+<ui:composition 
+		xmlns="http://www.w3.org/1999/xhtml"
+      	xmlns:h="http://xmlns.jcp.org/jsf/html"
+      	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"     
+      	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      	
+<cc:interface>
+	<cc:attribute name="var"/>
+	<cc:attribute name="value"/>
+	<cc:facet name="header"/>
+	<cc:facet name="footer"/>
+</cc:interface>      	
+<cc:implementation>
+	<h:outputStylesheet library="mygourmet/css" name="components.css"/>
+	<h:dataTable styleClass="gorDataTable" value="#{cc.attrs.value}">
+		<c:set target="#{component}" property="var" value="#{cc.attrs.var}"/>
+		<cc:insertFacet name="header"/>
+		<cc:insertChildren/>
+		<cc:insertFacet name="footer"/>	
+	</h:dataTable>
+</cc:implementation>   	
+</ui:composition>
