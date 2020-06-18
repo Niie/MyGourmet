@@ -1,24 +1,20 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:gor="http://xmlns.jcp.org/jsf/composite/mygourmet">
            
-      <ui:decorate template="/includes/sideBox.xhtml">
-      	<ui:param name="title" value="#{msgs['nav_title']}"></ui:param>
-      	<ui:define name="sideBoxContent">
-      		<h:form>
+      <gor:panelBox>
+      	<f:facet name="header">#{msgs['nav_title']}</f:facet>
+      	<h:form>
       			<h:commandLink action="#{user.getDirect('/showCustomer.xhtml')}">#{msgs['menu_show_customer']}</h:commandLink>
       			<h:commandLink action="#{user.getDirect('/showProvider.xhtml')}">#{msgs['menu_show_provider']}</h:commandLink>
       		</h:form>
-      	</ui:define>     
-      </ui:decorate>
+      </gor:panelBox>
       <br/>
-      <ui:decorate template="/includes/sideBox.xhtml">
-      	<ui:param name="title" value="#{msgs['news']}"></ui:param>
-      	<ui:define name="sideBoxContent">
-      		<h:form>
-      				<a>Das ist ein Beispiel-Text. Hier können z.B. ganz viele neue Nachrichten stehen. </a>
-      		</h:form>
-      	</ui:define>     
-      </ui:decorate>
+      <br/>
+      <gor:panelBox>
+      	<f:facet name="header">#{msgs['news']}</f:facet>
+      	Das ist ein Beispiel-Text. Hier können z.B. ganz viele neue Nachrichten stehen.
+      </gor:panelBox>
 </ui:composition>
