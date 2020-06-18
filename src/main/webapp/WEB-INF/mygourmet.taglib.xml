@@ -20,4 +20,9 @@
 	 		<validator-id>de.bruxxen.MyGourmet.Validator.BirthdayValidator2</validator-id>
 	 	</validator>
 	 </tag>
+	 <tag>
+	 	<tag-name>inputSpinner</tag-name>
+	 	<component-type>de.bruxxen.MyGourmet.Components.InputSpinner</component-type>
+	 	<renderer-type>de.bruxxen.MyGourmet.Components.InputSpinner</renderer-type>
+	 </tag>
   </facelet-taglib>
