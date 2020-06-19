@@ -25,7 +25,7 @@ public class JS {
 		this.last = last;
 	}
 	public String getName() {
-		this.name = this.first + " " + this.last;
+		this.name = this.first + " " + this.last + " " + this.country;
 		return this.name;
 	}
 	public void setName(String name) {
@@ -61,5 +61,8 @@ public class JS {
 			toReturn.add(country + " " + i);
 		}
 		return toReturn;
+	}
+	public void changeCountry() {
+		this.setStaates(this.getSpecificStaateList(this.country));
 	}
 }

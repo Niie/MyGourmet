@@ -16,9 +16,11 @@
 					<f:ajax execute="first last" render="name"/>
 					</h:commandButton>
 			</f:ajax>
-			<h:selectOneMenu id="country" value="#{js.country}">
+			<h:selectOneMenu id="country" value="#{js.country}"
+				valueChangeListener="#{js.changeCountry}"
+				onchange="jsf.ajax.request(this,event,{render: 'form:state'})">
 				<f:selectItems value="#{js.countries}"/>
-				<f:ajax render="state"/>
+				
 			</h:selectOneMenu>
 			<h:selectOneMenu id="state" value="#{js.staate}">
 				<f:selectItems value="#{js.staates}"></f:selectItems>
