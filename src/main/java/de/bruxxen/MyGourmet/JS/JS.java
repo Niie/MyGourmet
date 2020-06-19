@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ValueChangeEvent;
 
 @ManagedBean(name="js")
 @SessionScoped
@@ -62,7 +63,13 @@ public class JS {
 		}
 		return toReturn;
 	}
-	public void changeCountry() {
-		this.setStaates(this.getSpecificStaateList(this.country));
+	public void changeCountry(ValueChangeEvent ev) {
+		this.staate = null;
+		
+	}
+	private void updateStateItems(String country) {
+		if (country != null) {
+			this.setStaates(staates);
+		}
 	}
 }
