@@ -66,23 +66,29 @@
 	    		<h:message for="prefCat" style ="color:red"/>
 	    		
 	    		<h:outputLabel value="#{msgs['use_credit_card']}" for="useCreditCard"/>
-	    		<h:selectBooleanCheckbox id="useCreditCard" onclick="this.form.submit()" value="#{customer.useCreditCard}" immediate ="true" 
-	    			valueChangeListener="#{customer.useCreditCardChanged}"/>
+	    		<h:selectBooleanCheckbox id="useCreditCard" onclick="this.form.submit()" value="#{customer.useCreditCard}"
+	    			valueChangeListener="#{customer.useCreditCardChanged}">
+	    			<f:ajax render="grid2"/>
+	    			</h:selectBooleanCheckbox>
 	    		<h:message for="useCreditCard" style ="color:red"/>
 	    		
-	    		<h:outputLabel value="#{msgs['crdit_card-type']}: " for="ccType" rendered="#{customer.useCreditCard}"/>
+	    			
+	    	</h:panelGrid>
+	    	<h:panelGrid id="grid2" columns="3">
+	    		
+	    		<h:outputLabel value="#{msgs['crdit_card-type']}: " for="ccType"/>
 		    	<h:selectOneListbox id="ccType" value="#{customer.creditCard.name}" rendered="#{customer.useCreditCard}">
 		    		<f:selectItems value="#{creditCards.possibleCardTypes}"></f:selectItems>
 		    		<f:event listener="#{creditCardValidator.postValidateCCType}" type="javax.faces.event.PostValidateEvent"></f:event>
 		    		</h:selectOneListbox>
 		    	<h:message for="ccType" style ="color:red"/>
 		    	
-		    	<h:outputLabel value="#{msgs['credit_card_number']}:" for="ccNumber" rendered="#{customer.useCreditCard}"/>
+		    	<h:outputLabel value="#{msgs['credit_card_number']}:" for="ccNumber"/>
 		    	<h:inputText id="ccNumber" value="#{customer.creditCard.cardNumber}" rendered="#{customer.useCreditCard}" required="true"
 		    		validator ="#{creditCardValidator.validate}"/>
-	    		<h:message for="ccNumber" style ="color:red"/>
-	    		
+	    		<h:message for="ccNumber" style ="color:red"/>	
 	    	</h:panelGrid>
+	    	
 	    	<h:commandButton id="save" value="#{msgs['save']}" styleClass="buttons" action="#{user.getDirect('/showCustomer.xhtml')}"/>
 	    	<h:commandButton id="cancel" value="#{msgs['cancel']}" action="#{user.getDirect('/showCustomer.xhtml')}" styleClass="buttons" immediate="true"/>
 	    </h:form>
