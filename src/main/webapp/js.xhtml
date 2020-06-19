@@ -9,11 +9,13 @@
 	<ui:define name="content">
 		<h:form>
 			<h:panelGrid colums="1">
+			<f:ajax render="name">
 				<h:inputText id="first" value="#{js.first}"/>
 				<h:inputText id="last" value="#{js.last}"/>
 				<h:commandButton value="show">
 					<f:ajax execute="first last" render="name"/>
 					</h:commandButton>
+			</f:ajax>
 			</h:panelGrid>
 			<h:outputText id="name" value="#{js.name}"/>
 			</h:form>
