@@ -16,9 +16,19 @@
 					<f:ajax execute="first last" render="name"/>
 					</h:commandButton>
 			</f:ajax>
+			<h:selectOneMenu id="country" value="#{js.country}">
+				<f:selectItems value="#{js.countries}"/>
+				<f:ajax render="state"/>
+			</h:selectOneMenu>
+			<h:selectOneMenu id="state" value="#{js.staate}">
+				<f:selectItems value="#{js.staates}"></f:selectItems>
+			</h:selectOneMenu>
+			
+			
 			</h:panelGrid>
 			<h:outputText id="name" value="#{js.name}"/>
 			</h:form>
+			
 	
 	</ui:define>
 
