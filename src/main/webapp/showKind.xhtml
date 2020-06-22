@@ -7,9 +7,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 	<ui:define name="content">
-	<h:outputText value="Vorname:"/>
-	<h:inputText value="#{kind.vorname}"/>
-	<h:outputText value="Info:"/>
-	<h:outputText value="#{info}"/>
+	<h:form>
+		<h:outputText value="Info"/>
+		<h:inputText value="#{kind.info}"/><br/>
+		<h:outputText value="Info:"/>
+		<h:outputText value="#{info}Jo"/>
+	</h:form>
 	</ui:define>
 </ui:composition>

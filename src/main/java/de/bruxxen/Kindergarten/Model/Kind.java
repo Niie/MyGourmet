@@ -1,15 +1,17 @@
 package de.bruxxen.Kindergarten.Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
-
+@Named
 @ApplicationScoped
-public class Kind {
-	private String vorname = "Test", nachname, info ="Info über etwas";
+public class Kind implements Serializable{
+	private static final long serialVersionUID = 111L;
+	private String info = "Info über etwas";
+	private String vorname = "Test", nachname;
 	private Date geburtstag;
 	private int gruppe;
 
@@ -28,7 +30,6 @@ public class Kind {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	@Produces @Named
 	public String getInfo() {
 		return this.info;
 	}

@@ -1,15 +1,15 @@
 package de.bruxxen.MyGourmet.Controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
+import de.bruxxen.Kindergarten.Model.Kind;
 import de.bruxxen.MyGourmet.Model.Provider;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class Providers {
 	private ArrayList<Provider> providers = new ArrayList<Provider>();
 	private int id;
@@ -51,6 +51,7 @@ public class Providers {
 	}
 	
 	private void testProvider() {
+	//	this.providers.add(new Provider(this.kind.getVorname(), 123, "Gebratener Reis gebratenes Eis alles gebraten!"));
 		this.providers.add(new Provider("Asia Imbiss", 123, "Gebratener Reis gebratenes Eis alles gebraten!"));
 		this.providers.add(new Provider("Gertruds Döner", 221, "Spezial Döner mit Schnitzel!"));
 		this.providers.add(new Provider("Pizza Connection", 675, "Pizzakrationen die jede Vorstellung übersteigen!"));
