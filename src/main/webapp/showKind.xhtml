@@ -10,7 +10,9 @@
 	<h:form>
 		<h:outputText value="Info"/>
 		<h:inputText value="#{customerBean.customerService.test}"/><br/>
-
+		<h:outputText value="Random Func:"/>
+		<h:outputText value="#{calcRandom}"/>
+		<h:inputText value="#{calcRandom}"/><br/>
 	</h:form>
 	</ui:define>
 </ui:composition>
