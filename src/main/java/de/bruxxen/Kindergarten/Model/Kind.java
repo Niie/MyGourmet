@@ -2,11 +2,14 @@ package de.bruxxen.Kindergarten.Model;
 
 import java.util.Date;
 
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
+import javax.inject.Named;
 
-@ManagedBean
+
+@ApplicationScoped
 public class Kind {
-	private String vorname = "Test", nachname, info;
+	private String vorname = "Test", nachname, info ="Info über etwas";
 	private Date geburtstag;
 	private int gruppe;
 
@@ -25,6 +28,7 @@ public class Kind {
 	public void setInfo(String info) {
 		this.info = info;
 	}
+	@Produces @Named
 	public String getInfo() {
 		return this.info;
 	}
