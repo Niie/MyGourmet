@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class CreditCards {
-	public ArrayList<CreditCard> possibleCardTypes = new ArrayList<CreditCard>();
+	private ArrayList<CreditCard> possibleCardTypes = new ArrayList<CreditCard>();
 
 	public CreditCards() {
 		this.init();	

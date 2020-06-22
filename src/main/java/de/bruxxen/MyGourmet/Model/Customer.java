@@ -25,7 +25,7 @@ public class Customer {
 
 	private String firstName, lastName;	
 	private boolean male;
-	public boolean useCreditCard = false;
+	private boolean useCreditCard = false;
 	private CreditCard creditCard = new CreditCard("VISA");
 	private Date birthday;
 	private int zipCode;

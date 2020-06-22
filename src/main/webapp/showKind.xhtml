@@ -12,7 +12,10 @@
 		<h:inputText value="#{customerBean.customerService.test}"/><br/>
 		<h:outputText value="Random Func:"/>
 		<h:outputText value="#{calcRandom}"/>
-		<h:inputText value="#{calcRandom}"/><br/>
+		<h:inputText value="#{calcRandom}"/><br/><br/>
+		
+		<h:outputText value="TestNumber = #{wizardBean.testNumber}"/>
+		<h:button action="#{increaseTestNumber}" value="Jo"/>
 	</h:form>
 	</ui:define>
 </ui:composition>
